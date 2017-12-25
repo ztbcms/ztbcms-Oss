@@ -13,12 +13,17 @@ use Think\Controller;
 
 class QiniuTestController extends Controller {
 
-    private $AK = '';
-    private $SK = '';
-
     function index() {
-        $token = QiniuService::getToken($this->AK, $this->SK, 'maibao');
-        $this->assign('token', $token);
         $this->display();
+    }
+
+    function getToken() {
+        $expire_time = 1800;
+        QiniuService::init($expire_time);
+
+        $bucket = 'maibao';//指定存储空间名
+        //此参数在存储空间中的内容管理中配置获取，详细参见文档
+        $domain = 'http://ojclqkqcg.bkt.clouddn.com/';//存储空间外网访问链接，需以/结尾
+        $this->ajaxReturn(QiniuService::getToken($bucket, $domain));
     }
 }
