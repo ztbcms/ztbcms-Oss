@@ -17,6 +17,8 @@ CREATE TABLE `cms_oss_qiniu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `cms_oss_qiniu` VALUES ('1', '', '');
+
 
 CREATE TABLE `cms_oss_aliyun` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -25,3 +27,5 @@ CREATE TABLE `cms_oss_aliyun` (
   `endpoint` varchar(255) NOT NULL DEFAULT '' COMMENT 'endpoint',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `cms_oss_aliyun` VALUES ('1', '', '','');
